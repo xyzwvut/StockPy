@@ -105,7 +105,8 @@ class StockFetcher:
 
     def fetch_interval(self, start_date, end_date):
         if start_date > end_date:
-            raise NotImplementedError, "Start before end"
+            error_message = 'Invalid timespan specified {0} .. {1}'.format(start_date, end_date)
+            raise ValueError, error_message
 
         raise NotImplementedError, "Implement fetch interval"
 
