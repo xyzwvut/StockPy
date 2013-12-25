@@ -16,7 +16,8 @@ def get_fetch_options(args):
     args.stock = args.stock.upper()
 
     if args.end_date < args.start_date:
-        raise InvalidArgumentError, 'Invalid timespan specified'
+        error_message = 'Invalid timespan specified {0} .. {1}'.format(args.start_date, args.end_date)
+        raise argparse.ArgumentError(None, error_message)
 
     if args.end_date > datetime.date.today():
         print 'End date in the future. Capping to today.'
